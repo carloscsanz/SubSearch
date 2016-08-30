@@ -25,6 +25,8 @@ public class ServletController extends HttpServlet {
 		handlerHash.put("/Inicio.input", new es.youtubeapp.servlet.RandomDataRequestHandler());
 		handlerHash.put("/Query.input", new es.youtubeapp.servlet.QueryRequestHandler());
 		handlerHash.put("/Categoria.input", new es.youtubeapp.servlet.CategoryRequestHandler());
+		handlerHash.put("/AdvancedSearch.input", new es.youtubeapp.servlet.AdvancedSearchRequestHandler());
+
 
 		handlerHash.put("/addDocument.input", new es.youtubeapp.servlet.AddDocumentRequestHandler());
 		

@@ -18,7 +18,7 @@
 			
 			<div id="id" class="form-group">
 				<label class="control-label col-sm-2" for="id">ID</label>
-				<div class="col-sm-10" name="id">
+				<div class="col-sm-10">
 					<input type="text" class="form-control" name="id" placeholder="Identificador del video asignado por YouTube" autocomplete="off">
         			<span id="id-glyphicon-ok" class="glyphicon glyphicon-ok form-control-feedback"></span>
         			<span id="id-glyphicon-remove" class="glyphicon glyphicon-remove form-control-feedback"></span>
@@ -29,7 +29,7 @@
 			
 			<div id="titulo" class="form-group">
 				<label class="control-label col-sm-2" for="titulo">Titulo</label>
-				<div class="col-sm-10" name="titulo">
+				<div class="col-sm-10">
 					<input type="text" class="form-control" name="titulo" placeholder="Titulo del video que tiene en YouTube" autocomplete="off">
 					<span id="titulo-glyphicon-ok" class="glyphicon glyphicon-ok form-control-feedback"></span>
         			<span id="titulo-glyphicon-remove" class="glyphicon glyphicon-remove form-control-feedback"></span>

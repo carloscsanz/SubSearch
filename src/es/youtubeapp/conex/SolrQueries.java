@@ -100,6 +100,53 @@ public class SolrQueries{
 		
 		return DoSolrQuery(query);
 	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	public ArrayList<Map<String, String>> DoAdvancedQuery(String allWords, String anyWord, String notAnyWord, String Category, String author, String dateSince, String dateUntil, int maxResultados, int primerResultado) throws IOException{
+		
+		SolrQuery query = new SolrQuery();
+		query.setQuery("*:*");
+		
+		/*	CAMPO CATEGORIA	*/
+		
+		
+		/*	CAMPO DATE	*/
+		if(dateSince != null){
+			if(dateUntil != null){
+				String fq = "fecha_publicacion:[" + dateSince + " TO " + dateUntil + "]";
+				query.addFilterQuery(fq);
+				
+			}else{
+				String fq = "fecha_publicacion:[" + dateSince + " TO *]";
+				query.addFilterQuery(fq);
+
+			}
+		}else if(dateUntil != null){
+			String fq = "fecha_publicacion:[* TO " + dateUntil + "]";
+			query.addFilterQuery(fq);
+		}
+		
+		/*	MIL Y UN IF'S PARA CREAR LA QUERY	*/
+		
+		query.setRows(maxResultados);
+		query.setStart(primerResultado);
+		return DoSolrQuery(query);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public double getNumeroDocumentos() {
 		return numeroDocumentos;

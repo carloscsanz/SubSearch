@@ -94,10 +94,12 @@ nav.navbar-findcond .btn:focus, .btn:active:focus, .btn.active:focus {
 	outline: 0 none;
 }
 
-.btn-default:hover {
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn:active:focus {
 	color: white;
 	background-color: #df2b35 !important;
 	border-color: #df2b35 !important;
+	box-shadow: 0 0px 0px #f14444 inset, 0 0 0px #f14444;
+	outline: 0 none;
 }
 
 .btn-default {
