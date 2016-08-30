@@ -109,7 +109,7 @@ nav.navbar-findcond .btn:focus, .btn:active:focus, .btn.active:focus {
 }
 
 .media {
-	height: 150px;
+	height: 140px;
 }
 
 .inicio {
@@ -181,7 +181,7 @@ nav.navbar-findcond .btn:focus, .btn:active:focus, .btn.active:focus {
 }
 
 .body {
-	min-height: 630px;
+	min-height: 886px;
 	background-color: #f7f7f7;
 }
 

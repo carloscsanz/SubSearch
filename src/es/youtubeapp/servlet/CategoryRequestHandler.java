@@ -31,7 +31,7 @@ public class CategoryRequestHandler implements RequestHandler {
 	 *		@param	resultado	ArrayList con los 10 resultados (maximo) que se mostraran por pantalla al usuario.
 	 **/
 
-	public static String [] categorias = new String [] {"#Education", "#Entertainment", "#Comedy"};
+	public static String [] categorias = new String [] {"#Education", "#Entertainment", "#Comedy", "#Music"};
 	
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

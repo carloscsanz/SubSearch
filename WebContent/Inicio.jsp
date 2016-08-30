@@ -54,6 +54,7 @@
 								<li><a href="Categoria.input?Category=0">#Education</a></li>
 								<li><a href="Categoria.input?Category=1">#Entertainment</a></li>
 								<li><a href="Categoria.input?Category=2">#Comedy</a></li>
+								<li><a href="Categoria.input?Category=3">#Music</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -102,6 +103,16 @@
 					
 					<%
 							}
+						}else{
+					%>
+					
+					<div class="row">
+						<div class="col-sm-8 col-sm-offset-2 text-center">
+							<h2>No se han encontrado resultados</h2>
+						</div>
+					</div>
+					
+					<%		
 						}
 					%>
 					
