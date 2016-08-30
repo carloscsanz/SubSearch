@@ -162,10 +162,14 @@ nav.navbar-findcond .btn:focus, .btn:active:focus, .btn.active:focus {
 	margin-top: 5px;
 }
 
-.media-author {
+.media-author , .media-author a{
 	font-size: 11px;
 	margin-bottom: 0px;
 	color: #f14444;
+}
+
+.media-author a:hover{
+	color: #df2b35;
 }
 
 .footer {

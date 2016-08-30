@@ -51,9 +51,9 @@
 						<li><a href="BusquedaAvanzada.html">B&uacute;squeda Avanzada</a></li>
 						<li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categor&iacute;as <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="Categoria.input?Category=0">Formaci&oacute;n</a></li>
-								<li><a href="Categoria.input?Category=1">Entretenimiento</a></li>
-								<li><a href="Categoria.input?Category=2">Comedia</a></li>
+								<li><a href="Categoria.input?Category=0">#Education</a></li>
+								<li><a href="Categoria.input?Category=1">#Entertainment</a></li>
+								<li><a href="Categoria.input?Category=2">#Comedy</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -84,12 +84,12 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="media">
-								<a class="media-left" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>">
+								<a class="media-left" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank">
 									<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
 								</a>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>"><%= list.get(i).get("titulo")%></a></h4>
-									<p class="media-author"><%= list.get(i).get("autor")%></p>
+									<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
+									<p class="media-author"><a href="https://www.youtube.com/user/<%= list.get(i).get("user")%>" target="_blank"><%= list.get(i).get("autor")%></a></p>
 									<div class="descripcion">
 										<p><%= list.get(i).get("descripcion")%></p>
 									</div>

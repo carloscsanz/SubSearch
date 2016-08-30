@@ -27,6 +27,13 @@
 				</div>
 			</div>
 			
+			<div id="user" class="form-group">
+				<label class="control-label col-sm-2" for="user">User del canal</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" name="user" placeholder="Identificador del canal">
+				</div>
+			</div>
+			
 			<div id="titulo" class="form-group">
 				<label class="control-label col-sm-2" for="titulo">Titulo</label>
 				<div class="col-sm-10">

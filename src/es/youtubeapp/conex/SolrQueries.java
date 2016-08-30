@@ -13,7 +13,7 @@ import org.apache.solr.common.SolrDocumentList;
 
 public class SolrQueries{
 	
-	private static String [] campos = new String [] {"id", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion"};
+	private static String [] campos = new String [] {"id","user", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion"};
 	private double numeroDocumentos = 0.0;
 	
 	public SolrQueries(){}

@@ -10,7 +10,7 @@ import org.apache.solr.client.solrj.impl.HttpSolrClient;
 
 public class SolrConex {
 	
-	String urlString = "http://localhost:8983/solr/video";
+	String urlString = "http://localhost:8983/solr/SubSearch";
 	private SolrClient solr = new HttpSolrClient.Builder(urlString).build();
 	
 	public SolrClient getSolr() {

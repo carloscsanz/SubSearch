@@ -20,7 +20,7 @@ import org.apache.solr.common.SolrInputDocument;
 
 public class AddDocumentRequestHandler implements RequestHandler {
 	
-	public static String [] campos = new String [] {"id", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion", "subtitulos"};
+	public static String [] campos = new String [] {"id", "user", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion", "subtitulos"};
 
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -37,17 +37,19 @@ public class AddDocumentRequestHandler implements RequestHandler {
 		//	Mirar cosas del Prepare Statement
 		
 		String id = request.getParameter(campos[0]);
-		String titulo = request.getParameter(campos[1]);
-		String autor = request.getParameter(campos[2]);
-		String fecha = request.getParameter(campos[3]);
-		String categoria = request.getParameter(campos[4]);
-		String descripcion = request.getParameter(campos[5]);
-		String subtitulos = request.getParameter(campos[6]);
+		String user = request.getParameter(campos[1]);
+		String titulo = request.getParameter(campos[2]);
+		String autor = request.getParameter(campos[3]);
+		String fecha = request.getParameter(campos[4]);
+		String categoria = request.getParameter(campos[5]);
+		String descripcion = request.getParameter(campos[6]);
+		String subtitulos = request.getParameter(campos[7]);
 
 		subtitulos = clearSubtitlesText(subtitulos);
 		
 		SolrInputDocument document = new SolrInputDocument();
 		document.addField("id", id);
+		document.addField("user", user);
 		document.addField("titulo", titulo);
 		document.addField("autor", autor);
 		document.addField("fecha_publicacion", fecha);
@@ -55,7 +57,7 @@ public class AddDocumentRequestHandler implements RequestHandler {
 		document.addField("descripcion", descripcion);
 		document.addField("contenido", subtitulos);
 
-		createDocumentXML(id, titulo,  autor,  fecha,  categoria,  descripcion,  subtitulos);
+		createDocumentXML(id, user, titulo,  autor,  fecha,  categoria,  descripcion,  subtitulos);
 		
 //		SolrConex conection = new SolrConex();
 //		
@@ -75,6 +77,7 @@ public class AddDocumentRequestHandler implements RequestHandler {
 	/**
 	 * Método que se encarga de crear un fichero .xml con los datos del documento a añadir a la coleccion para tenerlos guardados y poder recuperar la coleccion cuando se desee.
 	 * @param id
+	 * @param user
 	 * @param titulo
 	 * @param autor
 	 * @param fecha
@@ -83,13 +86,14 @@ public class AddDocumentRequestHandler implements RequestHandler {
 	 * @param subtitulos
 	 * @throws IOException
 	 */
-	private void createDocumentXML(String id, String titulo, String autor, String fecha, String categoria, String descripcion, String subtitulos) throws IOException{
+	private void createDocumentXML(String id, String user, String titulo, String autor, String fecha, String categoria, String descripcion, String subtitulos) throws IOException{
 		
-		File archivo = new File("/Users/Carlos/Desktop/Documentos Videos/" + id + ".xml");
+		File archivo = new File("/Users/Carlos/Desktop/Documentos Videos/Documentos xml/" + id + ".xml");
 		BufferedWriter bw = new BufferedWriter(new FileWriter(archivo));
 		
 		bw.write("<add>\n\t<doc>\n");
 		bw.write("\t\t<field name=\"id\">"+ id + "</field>\n");
+		bw.write("\t\t<field name=\"user\">"+ user + "</field>\n");
 		bw.write("\t\t<field name=\"titulo\">"+ titulo + "</field>\n");
 		bw.write("\t\t<field name=\"autor\">"+ autor + "</field>\n");
 		bw.write("\t\t<field name=\"fecha_publicacion\">"+ fecha + "</field>\n");
