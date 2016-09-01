@@ -55,6 +55,7 @@
 								<li><a href="Categoria.input?Category=1">#Entertainment</a></li>
 								<li><a href="Categoria.input?Category=2">#Comedy</a></li>
 								<li><a href="Categoria.input?Category=3">#Music</a></li>
+								<li><a href="Categoria.input?Category=4">#Technology</a></li>
 							</ul>
 						</li>
 					</ul>
@@ -136,6 +137,13 @@
 										%>
 										<a href="Inicio.input?RandomSort=<%= request.getAttribute("RandomSort")%>&Page=<%= i %>"><%= i %></a>
 										<%
+											}else if(request.getAttribute("Category") != null || request.getAttribute("AllWords") != null || request.getAttribute("AnyWord") != null || request.getAttribute("NotAnyWord") != null || request.getAttribute("Author") != null || request.getAttribute("DateSince") != null || request.getAttribute("DateUntil") != null){
+												
+										%>		
+												
+										<a href="AdvancedSearch.input?Page=<%= i %><% if(request.getAttribute("Category") != null){%>&Category=<%= request.getAttribute("Category")%><%} %><% if(request.getAttribute("AllWords") != null){%>&AllWords=<%= request.getAttribute("AllWords")%><%} %><%if(request.getAttribute("AnyWord") != null){%>&AnyWord=<%= request.getAttribute("AnyWord")%><%}%><%if(request.getAttribute("NotAnyWord") != null){%>&NotAnyWord=<%= request.getAttribute("NotAnyWord")%><%}%><%if(request.getAttribute("Author") != null){%>&Author=<%= request.getAttribute("Author")%><%}%><%if(request.getAttribute("DateSince") != null){%>&DateSince=<%= request.getAttribute("DateSince")%><%}%><%if(request.getAttribute("DateUntil") != null){%>&DateUntil=<%= request.getAttribute("DateUntil")%><%}%>"><%= i %></a>
+												
+										<%		
 											}else{
 										%>
 										<a href="Query.input?Busqueda=<%= request.getAttribute("Busqueda")%>&Page=<%= i %>"><%= i %></a>

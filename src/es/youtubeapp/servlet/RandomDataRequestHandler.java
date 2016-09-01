@@ -22,8 +22,6 @@ import es.youtubeapp.conex.SolrQueries;
 
 public class RandomDataRequestHandler implements RequestHandler {
 	
-	public static String [] campos = new String [] {"id", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion"};
-
 	@Override
 	public String handleRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

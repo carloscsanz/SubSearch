@@ -101,52 +101,81 @@ public class SolrQueries{
 		return DoSolrQuery(query);
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	public ArrayList<Map<String, String>> DoAdvancedQuery(String allWords, String anyWord, String notAnyWord, String Category, String author, String dateSince, String dateUntil, int maxResultados, int primerResultado) throws IOException{
+	/**
+	 * @description	Metodo que consiste en crear el objeto SolrQuery y pasarselo al metodo DoSolrQuery para que lo consulte y recibir los resultados que encajan con la consulta.
+	 * @input
+	 * 		@param	allWords		String que contiene las palabras que se desean que aparezcan en los resultados.
+	 * 		@param	anyWord			String que contiene las palabras que se desean que aparezcan o no en los resultados.
+	 * 		@param	notAnyWord		String que contiene las palabras que se desean que no aparezcan en los resultados.
+	 * 		@param	category		String que contiene la categoria de la que se desea que sean los resultados.
+	 * 		@param	author			String que contiene el autor o usuario del que se desea que sean los resultados.
+	 * 		@param	dateSince		String que contiene la fecha a partir de la que se desea que sean los resultados.
+	 * 		@param	dateUntil		String que contiene la fecha tope de la que se desea que sean los resultados.
+	 * 		@param	maxResultados	int que indica el numero de resultados maximo que se desean recuperar.
+	 * 		@param	primerResultado	int que indica el numero del primer resultado a recuperar, esto es utilizado para la paginacion de resultados.
+	 * 
+	 * @output
+	 * 		@param	resultado	ArrayList que contiene los datos de cada uno de los documentos que encajan con la consulta.
+	 * 		@param	numeroDocumentos	double que indica el numero de documentos que encajan con la consulta realizada.
+	 * @throws IOException 
+	 * */
+	public ArrayList<Map<String, String>> DoAdvancedQuery(String allWords, String anyWord, String notAnyWord, String category, String author, String dateSince, String dateUntil, int maxResultados, int primerResultado) throws IOException{
 		
 		SolrQuery query = new SolrQuery();
-		query.setQuery("*:*");
 		
-		/*	CAMPO CATEGORIA	*/
-		
-		
-		/*	CAMPO DATE	*/
-		if(dateSince != null){
-			if(dateUntil != null){
-				String fq = "fecha_publicacion:[" + dateSince + " TO " + dateUntil + "]";
-				query.addFilterQuery(fq);
-				
-			}else{
-				String fq = "fecha_publicacion:[" + dateSince + " TO *]";
-				query.addFilterQuery(fq);
-
-			}
-		}else if(dateUntil != null){
-			String fq = "fecha_publicacion:[* TO " + dateUntil + "]";
-			query.addFilterQuery(fq);
+		/*	QUERY TODAS ESTAS PALABRAS	*/
+		if(allWords != null){
+			query.setQuery(allWords);
+		}else{
+			query.setQuery("*:*");
 		}
 		
-		/*	MIL Y UN IF'S PARA CREAR LA QUERY	*/
+		
+		/*	FILTER QUERY CUALQUIERA DE ESTAS PALABRAS	*/
+		if(anyWord != null){
+			query.addFilterQuery(anyWord);
+		}
+		
+		
+		/*	FILTER QUERY NINGUNA DE ESTAS PALABRAS	*/
+		if(notAnyWord != null){
+			query.addFilterQuery(notAnyWord);
+		}
+		
+		
+		/*	FILTER QUERY AUTOR	*/
+		if(author != null){
+			String autor = "autor:" + author + " OR user:" + author;
+			query.addFilterQuery(autor);
+		}
+		
+		
+		/*	FILTER QUERY CATEGORIA	*/
+		if(category != null){
+			String cat = "categoria:#" + category;
+			query.addFilterQuery(cat);
+		}
+		
+		
+		/*	FILTER QUERY DATES	*/
+		if(dateSince != null || dateUntil != null){
+			String date = null;
+			if(dateSince != null){
+				if(dateUntil != null){
+					date = "fecha_publicacion:[" + dateSince + " TO " + dateUntil + "]";
+				}else{
+					date = "fecha_publicacion:[" + dateSince + " TO *]";
+				}
+			}else if(dateUntil != null){
+				date = "fecha_publicacion:[* TO " + dateUntil + "]";
+			}
+			query.addFilterQuery(date);
+		}
 		
 		query.setRows(maxResultados);
 		query.setStart(primerResultado);
 		return DoSolrQuery(query);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	public double getNumeroDocumentos() {
 		return numeroDocumentos;

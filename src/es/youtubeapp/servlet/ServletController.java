@@ -26,10 +26,7 @@ public class ServletController extends HttpServlet {
 		handlerHash.put("/Query.input", new es.youtubeapp.servlet.QueryRequestHandler());
 		handlerHash.put("/Categoria.input", new es.youtubeapp.servlet.CategoryRequestHandler());
 		handlerHash.put("/AdvancedSearch.input", new es.youtubeapp.servlet.AdvancedSearchRequestHandler());
-
-
-		handlerHash.put("/addDocument.input", new es.youtubeapp.servlet.AddDocumentRequestHandler());
-		
+		handlerHash.put("/addDocument.input", new es.youtubeapp.servlet.AddDocumentRequestHandler());	
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

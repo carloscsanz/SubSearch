@@ -28,14 +28,13 @@ public class AddDocumentRequestHandler implements RequestHandler {
 		//	CAMPOS DEL DOCUMENTO A INDEXAR:
 		//		- ID (ID del video de YouTube)
 		//		- TITULO
+		//		- USER	(nick del canal)
 		//		- AUTOR (Dueño del canal que ha subido el video)
 		//		- FECHA PUBLICACION
 		//		- CATEGORIA (Etiquetas de categoria del video encabvezadas por # y separadas por comas)
 		//		- DESCRIPCION
 		//		- CONTENIDO (Subtitulos sin marcas de tiempo del video)
-		
-		//	Mirar cosas del Prepare Statement
-		
+				
 		String id = request.getParameter(campos[0]);
 		String user = request.getParameter(campos[1]);
 		String titulo = request.getParameter(campos[2]);
@@ -122,30 +121,9 @@ public class AddDocumentRequestHandler implements RequestHandler {
 			if(!stringIsNumber(lines[i]) && !lines[i].contains("-->") && !lines[i].equals("") && !lines[i].contains("[")){
 				subs = subs + ("\n\t\t\t" + lines[i]);
 			}
-//			
-//			
-//			
-//			int ii=2;
-//			for( ; (ii+i)<lines.length; ii++){
-//				String text = "";
-//				if(!(text = lines[ii+i]).equals("")){
-//					subs = subs + ("\n\t\t\t" + text);
-//				}else{
-//					if((ii+i+1)<lines.length){
-//						if((text = lines[ii+i+1]).equals("")){
-//							ii++;
-//							break;
-//						}
-//					}else{
-//						break;
-//					}
-//				}
-//			}
-//			i = i + ii;
 		}
 		
 		return subs;
-		
 	}
 	
 	
@@ -157,4 +135,5 @@ public class AddDocumentRequestHandler implements RequestHandler {
 			return false;
 		}
 	}
+	
 }

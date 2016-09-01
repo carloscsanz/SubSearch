@@ -42,6 +42,7 @@
 								<li><a href="Categoria.input?Category=1">#Entertainment</a></li>
 								<li><a href="Categoria.input?Category=2">#Comedy</a></li>
 								<li><a href="Categoria.input?Category=3">#Music</a></li>
+								<li><a href="Categoria.input?Category=4">#Technology</a></li>
 							</ul>
 						</li>
 					</ul>
