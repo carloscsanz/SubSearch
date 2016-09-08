@@ -25,6 +25,7 @@ public class AdvancedSearchRequestHandler implements RequestHandler {
 		String author = request.getParameter("Author");
 		String dateSince = request.getParameter("DateSince");
 		String dateUntil = request.getParameter("DateUntil");
+		String timeMark = request.getParameter("Time");
 		
 		/*	CAMPO TODAS ESTAS PALABRAS*/
 		if(allWords != null){
@@ -68,6 +69,17 @@ public class AdvancedSearchRequestHandler implements RequestHandler {
 					notAnyWord = notWords;
 				}
 				request.setAttribute("NotAnyWord", notAnyWord);
+			}
+		}
+		
+		/*	CAMPO MARCAS DE TIEMPO	*/
+		boolean time = true;
+		if(timeMark != null){
+			if(!timeMark.equals("true")){
+				time = false;
+				request.setAttribute("Time", "false");
+			}else{
+				request.setAttribute("Time", "true");
 			}
 		}
 		
@@ -125,10 +137,10 @@ public class AdvancedSearchRequestHandler implements RequestHandler {
 		ArrayList<Map<String, String>> resultado;
 
 		if(pagina == null){
-			resultado = query.DoAdvancedQuery(allWords, anyWord, notAnyWord, category, author, dateSince, dateUntil, 10, 0);
+			resultado = query.DoAdvancedQuery(allWords, anyWord, notAnyWord, category, author, dateSince, dateUntil, time, 10, 0);
 			pagina = "1";
 		}else{
-			resultado = query.DoAdvancedQuery(allWords, anyWord, notAnyWord, category, author, dateSince, dateUntil, 10, (Integer.parseInt(pagina)-1)*10);
+			resultado = query.DoAdvancedQuery(allWords, anyWord, notAnyWord, category, author, dateSince, dateUntil, time, 10, (Integer.parseInt(pagina)-1)*10);
 		}
 		int paginas = (int) Math.ceil(query.getNumeroDocumentos()/10.0);
 

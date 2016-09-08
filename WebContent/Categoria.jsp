@@ -77,11 +77,11 @@
 					%>
 				
 					<div class="media">
-						<a class="media-left" href="https://www.youtube.com/watch?v=<%= list.get(0).get("id")%>" target="_blank">
-							<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(0).get("id")%>/mqdefault.jpg" alt="<%= list.get(0).get("titulo")%>">
+						<a class="media-left" href="https://www.youtube.com/watch?v=<%= list.get(0).get("id_video")%>&t=<%= list.get(0).get("marca_tiempo")%>" target="_blank">
+							<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(0).get("id_video")%>/mqdefault.jpg" alt="<%= list.get(0).get("titulo")%>">
 						</a>
 						<div class="media-body">
-							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(0).get("id")%>" target="_blank"><%= list.get(0).get("titulo")%></a></h4>
+							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(0).get("id_video")%>&t=<%= list.get(0).get("marca_tiempo")%>" target="_blank"><%= list.get(0).get("titulo")%></a></h4>
 							<p class="media-author"><a href="https://www.youtube.com/user/<%= list.get(0).get("user")%>" target="_blank"><%= list.get(0).get("autor")%></a></p>
 							<div class="descripcion">
 								<p><%= list.get(0).get("descripcion")%></p>
@@ -96,10 +96,10 @@
 						%>
 						
 						<div class="col-sm-4">
-							<a class="media" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank">
-								<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
+							<a class="media" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%>&t=<%= list.get(i).get("marca_tiempo")%>" target="_blank">
+								<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id_video")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
 							</a>
-							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
+							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%>&t=<%= list.get(i).get("marca_tiempo")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
 							<p class="media-author"><a href="https://www.youtube.com/user/<%= list.get(i).get("user")%>" target="_blank"><%= list.get(i).get("autor")%></a></p>
 						</div>
 						
@@ -118,10 +118,10 @@
 						%>
 						
 						<div class="col-sm-4">
-							<a class="media" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank">
-								<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
+							<a class="media" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%>&t=<%= list.get(i).get("marca_tiempo")%>" target="_blank">
+								<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id_video")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
 							</a>
-							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
+							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%>&t=<%= list.get(i).get("marca_tiempo")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
 							<p class="media-author"><a href="https://www.youtube.com/user/<%= list.get(i).get("user")%>" target="_blank"><%= list.get(i).get("autor")%></a></p>
 						</div>
 						
@@ -140,10 +140,10 @@
 						%>
 						
 						<div class="col-sm-4">
-							<a class="media" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank">
-								<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
+							<a class="media" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%>&t=<%= list.get(i).get("marca_tiempo")%>" target="_blank">
+								<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id_video")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
 							</a>
-							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
+							<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%>&t=<%= list.get(i).get("marca_tiempo")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
 							<p class="media-author"><a href="https://www.youtube.com/user/<%= list.get(i).get("user")%>" target="_blank"><%= list.get(i).get("autor")%></a></p>
 						</div>
 						

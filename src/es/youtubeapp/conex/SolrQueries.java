@@ -13,7 +13,9 @@ import org.apache.solr.common.SolrDocumentList;
 
 public class SolrQueries{
 	
-	private static String [] campos = new String [] {"id","user", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion"};
+	private static String [] camposMT = new String [] {"id_video","user", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion", "marca_tiempo"};
+	private static String [] campos = new String [] {"id_video","user", "titulo", "autor", "fecha_publicacion", "categoria", "descripcion"};
+	
 	private double numeroDocumentos = 0.0;
 	
 	public SolrQueries(){}
@@ -27,8 +29,9 @@ public class SolrQueries{
 	 * 		@param	resultado	ArrayList que contiene los datos de cada uno de los documentos que encajan con la consulta.
 	 * 		@param	numeroDocumentos	double que indica el numero de documentos que encajan con la consulta realizada.
 	 * */
-	public ArrayList<Map<String, String>> DoSolrQuery(SolrQuery query) throws IOException{
-		SolrConex conection = new SolrConex();
+	public ArrayList<Map<String, String>> DoSolrQuery(SolrQuery query, boolean coreSelector) throws IOException{
+		
+		SolrConex conection = new SolrConex(coreSelector);
 		
 		try {
 			
@@ -38,13 +41,26 @@ public class SolrQueries{
 			this.setNumeroDocumentos((double) list.getNumFound());
 			
 			ArrayList<Map<String, String>> resultado = new ArrayList<Map<String, String>>();
-			for(int i=0; i < list.size(); i++){
-				Map<String, String> it = new HashMap<String, String>();
-				for(int ii=0; ii <campos.length; ii++){
-					it.put(campos[ii], list.get(i).getFieldValue(campos[ii]).toString());
+			
+			if(!coreSelector){
+				for(int i=0; i < list.size(); i++){
+					Map<String, String> it = new HashMap<String, String>();
+					for(int ii=0; ii <campos.length; ii++){
+						it.put(campos[ii], list.get(i).getFieldValue(campos[ii]).toString());
+					}
+					resultado.add(it);
 				}
-				resultado.add(it);
+			}else{
+				for(int i=0; i < list.size(); i++){
+					Map<String, String> it = new HashMap<String, String>();
+					for(int ii=0; ii <camposMT.length; ii++){
+						it.put(camposMT[ii], list.get(i).getFieldValue(camposMT[ii]).toString());
+					}
+					resultado.add(it);
+				}
 			}
+			
+			
 			return resultado;
 		} catch (SolrServerException e) {
 			// TODO Auto-generated catch block
@@ -72,7 +88,7 @@ public class SolrQueries{
 		query.setRows(maxResultados);
 		query.setStart(primerResultado);
 		
-		return DoSolrQuery(query);
+		return DoSolrQuery(query, false);
 	}
 
 	/**
@@ -98,7 +114,7 @@ public class SolrQueries{
 		query.setRows(maxResultados);
 		query.setStart(primerResultado);
 		
-		return DoSolrQuery(query);
+		return DoSolrQuery(query, false);
 	}
 
 	/**
@@ -119,7 +135,7 @@ public class SolrQueries{
 	 * 		@param	numeroDocumentos	double que indica el numero de documentos que encajan con la consulta realizada.
 	 * @throws IOException 
 	 * */
-	public ArrayList<Map<String, String>> DoAdvancedQuery(String allWords, String anyWord, String notAnyWord, String category, String author, String dateSince, String dateUntil, int maxResultados, int primerResultado) throws IOException{
+	public ArrayList<Map<String, String>> DoAdvancedQuery(String allWords, String anyWord, String notAnyWord, String category, String author, String dateSince, String dateUntil, boolean coreSelector, int maxResultados, int primerResultado) throws IOException{
 		
 		SolrQuery query = new SolrQuery();
 		
@@ -174,7 +190,7 @@ public class SolrQueries{
 		
 		query.setRows(maxResultados);
 		query.setStart(primerResultado);
-		return DoSolrQuery(query);
+		return DoSolrQuery(query, coreSelector);
 	}
 	
 	public double getNumeroDocumentos() {

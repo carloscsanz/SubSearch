@@ -10,8 +10,18 @@ import org.apache.solr.client.solrj.impl.HttpSolrClient;
 
 public class SolrConex {
 	
-	String urlString = "http://localhost:8983/solr/SubSearch";
-	private SolrClient solr = new HttpSolrClient.Builder(urlString).build();
+	String core = "http://localhost:8983/solr/SubSearch";
+	String coreMT = "http://localhost:8983/solr/SubSearchMT";
+	
+	SolrClient solr = null;
+	
+	public SolrConex(boolean coreSelector){
+		if(coreSelector){
+			solr = new HttpSolrClient.Builder(this.coreMT).build();
+		}else{
+			solr = new HttpSolrClient.Builder(this.core).build();
+		}
+	}
 	
 	public SolrClient getSolr() {
 		return solr;
