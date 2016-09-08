@@ -86,11 +86,11 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="media">
-								<a class="media-left" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank">
-									<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
+								<a class="media-left" href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%><%if(list.get(i).get("marca_tiempo") != null){%>&t=<%= list.get(i).get("marca_tiempo")%><%}%>" target="_blank">
+									<img class="media-object" src="http://img.youtube.com/vi/<%= list.get(i).get("id_video")%>/mqdefault.jpg" alt="<%= list.get(i).get("titulo")%>">
 								</a>
 								<div class="media-body">
-									<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id")%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
+									<h4 class="media-heading"><a href="https://www.youtube.com/watch?v=<%= list.get(i).get("id_video")%><%if(list.get(i).get("marca_tiempo") != null){%>&t=<%= list.get(i).get("marca_tiempo")%><%}%>" target="_blank"><%= list.get(i).get("titulo")%></a></h4>
 									<p class="media-author"><a href="https://www.youtube.com/user/<%= list.get(i).get("user")%>" target="_blank"><%= list.get(i).get("autor")%></a></p>
 									<div class="descripcion">
 										<p><%= list.get(i).get("descripcion")%></p>
@@ -141,7 +141,7 @@
 												
 										%>		
 												
-										<a href="AdvancedSearch.input?Page=<%= i %><% if(request.getAttribute("Category") != null){%>&Category=<%= request.getAttribute("Category")%><%} %><% if(request.getAttribute("AllWords") != null){%>&AllWords=<%= request.getAttribute("AllWords")%><%} %><%if(request.getAttribute("AnyWord") != null){%>&AnyWord=<%= request.getAttribute("AnyWord")%><%}%><%if(request.getAttribute("NotAnyWord") != null){%>&NotAnyWord=<%= request.getAttribute("NotAnyWord")%><%}%><%if(request.getAttribute("Author") != null){%>&Author=<%= request.getAttribute("Author")%><%}%><%if(request.getAttribute("DateSince") != null){%>&DateSince=<%= request.getAttribute("DateSince")%><%}%><%if(request.getAttribute("DateUntil") != null){%>&DateUntil=<%= request.getAttribute("DateUntil")%><%}%>"><%= i %></a>
+										<a href="AdvancedSearch.input?Page=<%= i %><% if(request.getAttribute("Category") != null){%>&Category=<%= request.getAttribute("Category")%><%} %><% if(request.getAttribute("AllWords") != null){%>&AllWords=<%= request.getAttribute("AllWords")%><%} %><%if(request.getAttribute("AnyWord") != null){%>&AnyWord=<%= request.getAttribute("AnyWord")%><%}%><%if(request.getAttribute("NotAnyWord") != null){%>&NotAnyWord=<%= request.getAttribute("NotAnyWord")%><%}%><%if(request.getAttribute("Author") != null){%>&Author=<%= request.getAttribute("Author")%><%}%><%if(request.getAttribute("DateSince") != null){%>&DateSince=<%= request.getAttribute("DateSince")%><%}%><%if(request.getAttribute("DateUntil") != null){%>&DateUntil=<%= request.getAttribute("DateUntil")%><%}%>&Time=<%= request.getAttribute("Time")%>"><%= i %></a>
 												
 										<%		
 											}else{
